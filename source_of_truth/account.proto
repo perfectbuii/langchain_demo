@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package account;
+
+option go_package = "github.com/haobuihoan/account-server/pb/account";
+
+service AccountService {
+  rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);
+  rpc GetAccount(GetAccountRequest)       returns (GetAccountResponse);
+  rpc ListAccounts(ListAccountsRequest)   returns (ListAccountsResponse);
+}
+
+message Account {
+  string id         = 1;
+  string name       = 2;
+  string email      = 3;
+  string created_at = 4;
+}
+
+message CreateAccountRequest {
+  string name  = 1;
+  string email = 2;
+}
+
+message CreateAccountResponse {
+  Account account = 1;
+}
+
+message GetAccountRequest {
+  string id = 1;
+}
+
+message GetAccountResponse {
+  Account account = 1;
+}
+
+message ListAccountsRequest {}
+
+message ListAccountsResponse {
+  repeated Account accounts = 1;
+}

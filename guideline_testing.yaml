@@ -1,0 +1,30 @@
+# ──────────────────────────────────────────────────────────────────────────────
+# guideline_testing.yaml
+# Minimal user-facing test configuration.
+# No endpoints, no schemas, no HTTP details.
+# The agent auto-discovers everything from specs/ and proto/.
+# ──────────────────────────────────────────────────────────────────────────────
+
+test_services:
+  - service: Bank Account
+    scenario: basic validation
+
+agent:
+  model: gemini-2.5-flash-lite
+  temperature: 0
+  max_iterations: 30
+
+execution:
+  base_url_http: http://localhost:8080
+  base_url_grpc: localhost:9090
+  timeout_seconds: 10
+  retry_attempts: 2
+  concurrency: 4
+
+report:
+  output_dir: reports/
+  formats:
+    - json
+    - html
+    - markdown
+  save_to_file: true

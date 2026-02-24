@@ -1,0 +1,126 @@
+openapi: "3.0.3"
+info:
+  title: Account Service API
+  version: "1.0.0"
+  description: Manages user accounts — create, retrieve and list.
+
+servers:
+  - url: http://localhost:8080
+    description: Local dev server
+
+paths:
+  /accounts:
+    post:
+      operationId: createAccount
+      summary: Create a new account
+      tags: [accounts]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateAccountRequest"
+      responses:
+        "201":
+          description: Account created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        "400":
+          description: Bad request — missing or invalid fields
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "500":
+          description: Internal server error
+
+    get:
+      operationId: listAccounts
+      summary: List all accounts
+      tags: [accounts]
+      responses:
+        "200":
+          description: List of accounts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Account"
+        "500":
+          description: Internal server error
+
+  /accounts/{id}:
+    get:
+      operationId: getAccountById
+      summary: Get account by ID
+      tags: [accounts]
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+          description: UUID of the account
+      responses:
+        "200":
+          description: Account found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Account"
+        "400":
+          description: Invalid ID format
+        "404":
+          description: Account not found
+        "500":
+          description: Internal server error
+
+components:
+  schemas:
+    CreateAccountRequest:
+      type: object
+      required:
+        - name
+        - email
+      properties:
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+          example: "Alice"
+        email:
+          type: string
+          format: email
+          example: "alice@example.com"
+
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+          example: "3fa85f64-5717-4562-b3fc-2c963f66afa6"
+        name:
+          type: string
+          example: "Alice"
+        email:
+          type: string
+          format: email
+          example: "alice@example.com"
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+          example: "2026-02-24T00:00:00Z"
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          example: "name and email are required"
