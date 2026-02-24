@@ -1,0 +1,318 @@
+{
+  "service": "account",
+  "total_apis": 6,
+  "total_tests": 20,
+  "passed": 10,
+  "failed": 10,
+  "pass_rate_pct": 50.0,
+  "avg_latency_ms": 12.0,
+  "metrics_by_type": {
+    "positive": {
+      "total": 5,
+      "passed": 3,
+      "failed": 2
+    },
+    "negative": {
+      "total": 13,
+      "passed": 6,
+      "failed": 7
+    },
+    "schema": {
+      "total": 2,
+      "passed": 1,
+      "failed": 1
+    }
+  },
+  "details": [
+    {
+      "test_id": "tc_003",
+      "api_id": "POST /accounts",
+      "test_type": "positive",
+      "description": "Create account with name at maxLength (100 characters)",
+      "status": "passed",
+      "expected_status": 201,
+      "actual_status": 201,
+      "latency_ms": 14.47,
+      "response_body": {
+        "id": "c6a24c58-f9da-4746-a467-932a3fe13336",
+        "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "email": "maxname@example.com",
+        "created_at": "2026-02-24T07:20:27.540028Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_001",
+      "api_id": "POST /accounts",
+      "test_type": "positive",
+      "description": "Create account with valid required fields",
+      "status": "passed",
+      "expected_status": 201,
+      "actual_status": 201,
+      "latency_ms": 15.84,
+      "response_body": {
+        "id": "19de41e2-0a81-4164-9f79-9fbbd497a5a4",
+        "name": "John Doe",
+        "email": "john.doe@example.com",
+        "created_at": "2026-02-24T07:20:27.541806Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_002",
+      "api_id": "POST /accounts",
+      "test_type": "positive",
+      "description": "Create account with name at minLength (1 character)",
+      "status": "passed",
+      "expected_status": 201,
+      "actual_status": 201,
+      "latency_ms": 16.69,
+      "response_body": {
+        "id": "5fc19a6a-7630-4887-8e9c-2a736a04f17d",
+        "name": "A",
+        "email": "minname@example.com",
+        "created_at": "2026-02-24T07:20:27.542795Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_004",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Missing required field 'name'",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 16.42,
+      "response_body": "name and email are required\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_005",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Missing required field 'email'",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 10.2,
+      "response_body": "name and email are required\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_006",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Wrong type for 'name' (number instead of string)",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 10.45,
+      "response_body": "invalid request body\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_008",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Invalid format for 'email'",
+      "status": "failed",
+      "expected_status": 400,
+      "actual_status": 201,
+      "latency_ms": 10.32,
+      "response_body": {
+        "id": "09ec8d66-7da8-4d1a-be74-5b0fc7c84a8a",
+        "name": "Test User",
+        "email": "invalid-email",
+        "created_at": "2026-02-24T07:20:27.553291Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_007",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Wrong type for 'email' (number instead of string)",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 10.93,
+      "response_body": "invalid request body\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_009",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Empty string for required field 'name'",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 9.81,
+      "response_body": "name and email are required\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_011",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Name exceeds maxLength (101 characters)",
+      "status": "failed",
+      "expected_status": 400,
+      "actual_status": 201,
+      "latency_ms": 9.25,
+      "response_body": {
+        "id": "d1b36aec-3ccf-4340-91f9-8116c98471c8",
+        "name": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "email": "longname@example.com",
+        "created_at": "2026-02-24T07:20:27.562817Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_010",
+      "api_id": "POST /accounts",
+      "test_type": "negative",
+      "description": "Empty string for required field 'email'",
+      "status": "passed",
+      "expected_status": 400,
+      "actual_status": 400,
+      "latency_ms": 10.4,
+      "response_body": "name and email are required\n",
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_012",
+      "api_id": "POST /accounts",
+      "test_type": "schema",
+      "description": "Verify 201 response schema for account creation",
+      "status": "passed",
+      "expected_status": 201,
+      "actual_status": 201,
+      "latency_ms": 9.21,
+      "response_body": {
+        "id": "050c972d-319b-43a6-b3e3-1d80edfdc839",
+        "name": "Schema Test",
+        "email": "schema@example.com",
+        "created_at": "2026-02-24T07:20:27.563585Z"
+      },
+      "validation_errors": [],
+      "error": null
+    },
+    {
+      "test_id": "tc_013",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "positive",
+      "description": "gRPC CreateAccount with valid required fields",
+      "status": "failed",
+      "expected_status": 0,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "Couldn't parse file content!"
+    },
+    {
+      "test_id": "tc_017",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "negative",
+      "description": "gRPC CreateAccount with empty string for required field 'name'",
+      "status": "failed",
+      "expected_status": 3,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "Couldn't parse file content!"
+    },
+    {
+      "test_id": "tc_018",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "negative",
+      "description": "gRPC CreateAccount with empty string for required field 'email'",
+      "status": "failed",
+      "expected_status": 3,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "Couldn't parse file content!"
+    },
+    {
+      "test_id": "tc_019",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "negative",
+      "description": "gRPC CreateAccount with invalid format for 'email'",
+      "status": "failed",
+      "expected_status": 3,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "Couldn't parse file content!"
+    },
+    {
+      "test_id": "tc_020",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "schema",
+      "description": "Verify gRPC 0 (OK) response schema for CreateAccount",
+      "status": "failed",
+      "expected_status": 0,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "Couldn't parse file content!"
+    },
+    {
+      "test_id": "tc_015",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "negative",
+      "description": "gRPC CreateAccount missing required field 'name' (empty string default)",
+      "status": "failed",
+      "expected_status": 3,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "cannot import name 'grpc_stubs' from 'agent' (/Users/haobuihoan/go/src/github.com/perfectbuii/langchain_demo/agent/__init__.py)"
+    },
+    {
+      "test_id": "tc_016",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "negative",
+      "description": "gRPC CreateAccount missing required field 'email' (empty string default)",
+      "status": "failed",
+      "expected_status": 3,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "cannot import name 'grpc_stubs' from 'agent' (/Users/haobuihoan/go/src/github.com/perfectbuii/langchain_demo/agent/__init__.py)"
+    },
+    {
+      "test_id": "tc_014",
+      "api_id": "GRPC AccountService/CreateAccount",
+      "test_type": "positive",
+      "description": "gRPC CreateAccount with name containing special characters",
+      "status": "failed",
+      "expected_status": 0,
+      "actual_status": null,
+      "latency_ms": 0.0,
+      "response_body": null,
+      "validation_errors": [],
+      "error": "cannot import name 'grpc_stubs' from 'agent' (/Users/haobuihoan/go/src/github.com/perfectbuii/langchain_demo/agent/__init__.py)"
+    }
+  ]
+}

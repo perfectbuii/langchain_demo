@@ -82,6 +82,13 @@ def node_generate(state: AgentState) -> dict:
     console.print(Panel("[bold blue]PHASE 2 — GENERATE[/bold blue]", expand=False))
 
     apis = state["apis"]
+
+    # Apply API filter if set by the chatbot
+    api_filter = state.get("api_filter")
+    if api_filter:
+        apis = [a for a in apis if a["api_id"] in api_filter]
+        console.print(f"  filtering to [cyan]{len(apis)}[/cyan] selected API(s)")
+
     test_cases: list[TestCase] = generate_test_cases_tool.invoke({"apis": apis})
     console.print(f"  generated [green]{len(test_cases)}[/green] test cases")
 

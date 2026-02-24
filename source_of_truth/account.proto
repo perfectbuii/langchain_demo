@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package account;
 
-option go_package = "github.com/haobuihoan/account-server/pb/account";
+option go_package = "github.com/perfectbuii/account-server/pb/account";
 
 service AccountService {
   rpc CreateAccount(CreateAccountRequest) returns (CreateAccountResponse);

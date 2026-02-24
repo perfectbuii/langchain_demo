@@ -1,5 +1,5 @@
 """
-agent/config.py – loads guideline_testing.yaml and propagates settings.
+agent/config.py – loads config.yaml and propagates settings.
 """
 
 from __future__ import annotations
@@ -16,8 +16,8 @@ _ROOT = Path(__file__).resolve().parent.parent  # repo root
 
 
 def load_guideline(path: str | Path | None = None) -> dict:
-    """Load and return the parsed guideline_testing.yaml."""
-    p = Path(path) if path else _ROOT / "guideline_testing.yaml"
+    """Load and return the parsed config.yaml."""
+    p = Path(path) if path else _ROOT / "config.yaml"
     with open(p) as f:
         return yaml.safe_load(f)
 
@@ -54,9 +54,6 @@ class Settings:
         self.report_dir: Path = _ROOT / report_cfg.get("output_dir", "reports")
         self.report_formats: list[str] = report_cfg.get("formats", ["json"])
         self.save_report: bool = bool(report_cfg.get("save_to_file", True))
-
-        # Services to test
-        self.test_services: list[dict] = guideline.get("test_services", [])
 
 
 # Singleton used throughout the project

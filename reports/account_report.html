@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>API Test Report — account</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; margin: 0; background: #f5f7fa; color: #1a202c; }
+    header { background: #2563eb; color: white; padding: 1.5rem 2rem; }
+    header h1 { margin: 0; font-size: 1.5rem; }
+    header p  { margin: .25rem 0 0; opacity: .85; font-size: .9rem; }
+    main { max-width: 1100px; margin: 2rem auto; padding: 0 1rem; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+    .card  { background: white; border-radius: 8px; padding: 1.2rem; text-align: center; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    .card .val  { font-size: 2rem; font-weight: 700; }
+    .card .label{ font-size: .8rem; color: #6b7280; margin-top: .25rem; }
+    .pass { color: #059669; }
+    .fail { color: #dc2626; }
+    .info { color: #2563eb; }
+
+    table { width: 100%; border-collapse: collapse; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,.1); }
+    th { background: #1e3a8a; color: white; text-align: left; padding: .75rem 1rem; font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; }
+    td { padding: .7rem 1rem; font-size: .85rem; border-bottom: 1px solid #e5e7eb; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f0f4ff; }
+    .badge { display: inline-block; padding: .2rem .55rem; border-radius: 9999px; font-size: .75rem; font-weight: 600; }
+    .badge-pass { background: #d1fae5; color: #065f46; }
+    .badge-fail { background: #fee2e2; color: #991b1b; }
+    .badge-pos  { background: #dbeafe; color: #1e40af; }
+    .badge-neg  { background: #fef3c7; color: #92400e; }
+    .badge-sch  { background: #ede9fe; color: #5b21b6; }
+
+    footer { text-align: center; padding: 2rem; color: #9ca3af; font-size: .8rem; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>API Test Report — ACCOUNT</h1>
+  <p>6 APIs &nbsp;·&nbsp; 20 tests &nbsp;·&nbsp; Pass rate 50.0%</p>
+</header>
+<main>
+  <div class="cards">
+    <div class="card"><div class="val info">6</div><div class="label">APIs Tested</div></div>
+    <div class="card"><div class="val info">20</div><div class="label">Total Tests</div></div>
+    <div class="card"><div class="val pass">10</div><div class="label">Passed</div></div>
+    <div class="card"><div class="val fail">10</div><div class="label">Failed</div></div>
+    <div class="card"><div class="val info">50.0%</div><div class="label">Pass Rate</div></div>
+    <div class="card"><div class="val info">12.0</div><div class="label">Avg Latency (ms)</div></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Test ID</th>
+        <th>API</th>
+        <th>Type</th>
+        <th>Description</th>
+        <th>Expected</th>
+        <th>Actual</th>
+        <th>Latency (ms)</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr>
+        <td>1</td>
+        <td><code>tc_003</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-pos">
+            positive
+          </span>
+        </td>
+        <td>Create account with name at maxLength (100 characters)</td>
+        <td>201</td>
+        <td>201</td>
+        <td>14.47</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>2</td>
+        <td><code>tc_001</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-pos">
+            positive
+          </span>
+        </td>
+        <td>Create account with valid required fields</td>
+        <td>201</td>
+        <td>201</td>
+        <td>15.84</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>3</td>
+        <td><code>tc_002</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-pos">
+            positive
+          </span>
+        </td>
+        <td>Create account with name at minLength (1 character)</td>
+        <td>201</td>
+        <td>201</td>
+        <td>16.69</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>4</td>
+        <td><code>tc_004</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Missing required field 'name'</td>
+        <td>400</td>
+        <td>400</td>
+        <td>16.42</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>5</td>
+        <td><code>tc_005</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Missing required field 'email'</td>
+        <td>400</td>
+        <td>400</td>
+        <td>10.2</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>6</td>
+        <td><code>tc_006</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Wrong type for 'name' (number instead of string)</td>
+        <td>400</td>
+        <td>400</td>
+        <td>10.45</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>7</td>
+        <td><code>tc_008</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Invalid format for 'email'</td>
+        <td>400</td>
+        <td>201</td>
+        <td>10.32</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>8</td>
+        <td><code>tc_007</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Wrong type for 'email' (number instead of string)</td>
+        <td>400</td>
+        <td>400</td>
+        <td>10.93</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>9</td>
+        <td><code>tc_009</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Empty string for required field 'name'</td>
+        <td>400</td>
+        <td>400</td>
+        <td>9.81</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>10</td>
+        <td><code>tc_011</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Name exceeds maxLength (101 characters)</td>
+        <td>400</td>
+        <td>201</td>
+        <td>9.25</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>11</td>
+        <td><code>tc_010</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>Empty string for required field 'email'</td>
+        <td>400</td>
+        <td>400</td>
+        <td>10.4</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>12</td>
+        <td><code>tc_012</code></td>
+        <td><code>POST /accounts</code></td>
+        <td>
+          <span class="badge badge-sch">
+            schema
+          </span>
+        </td>
+        <td>Verify 201 response schema for account creation</td>
+        <td>201</td>
+        <td>201</td>
+        <td>9.21</td>
+        <td><span class="badge badge-pass">passed</span></td>
+      </tr>
+      
+      <tr>
+        <td>13</td>
+        <td><code>tc_013</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-pos">
+            positive
+          </span>
+        </td>
+        <td>gRPC CreateAccount with valid required fields</td>
+        <td>0</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>14</td>
+        <td><code>tc_017</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>gRPC CreateAccount with empty string for required field 'name'</td>
+        <td>3</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>15</td>
+        <td><code>tc_018</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>gRPC CreateAccount with empty string for required field 'email'</td>
+        <td>3</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>16</td>
+        <td><code>tc_019</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>gRPC CreateAccount with invalid format for 'email'</td>
+        <td>3</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>17</td>
+        <td><code>tc_020</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-sch">
+            schema
+          </span>
+        </td>
+        <td>Verify gRPC 0 (OK) response schema for CreateAccount</td>
+        <td>0</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>18</td>
+        <td><code>tc_015</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>gRPC CreateAccount missing required field 'name' (empty string default)</td>
+        <td>3</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>19</td>
+        <td><code>tc_016</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-neg">
+            negative
+          </span>
+        </td>
+        <td>gRPC CreateAccount missing required field 'email' (empty string default)</td>
+        <td>3</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+      <tr>
+        <td>20</td>
+        <td><code>tc_014</code></td>
+        <td><code>GRPC AccountService/CreateAccount</code></td>
+        <td>
+          <span class="badge badge-pos">
+            positive
+          </span>
+        </td>
+        <td>gRPC CreateAccount with name containing special characters</td>
+        <td>0</td>
+        <td>—</td>
+        <td>0.0</td>
+        <td><span class="badge badge-fail">failed</span></td>
+      </tr>
+      
+    </tbody>
+  </table>
+</main>
+<footer>Generated by Spec-Driven API Testing Agent</footer>
+</body>
+</html>

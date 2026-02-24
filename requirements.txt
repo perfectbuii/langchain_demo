@@ -1,8 +1,14 @@
 # Core LangChain / LangGraph
 langchain>=0.2.0
-langchain-openai>=0.1.0
 langchain-core>=0.2.0
+langchain-google-genai>=2.0.0
 langgraph>=0.1.0
+
+# Utilities
+json-repair>=0.10.0
+python-dotenv>=1.0.1
+rich>=13.7.1
+anyio>=4.4.0
 
 # HTTP client
 httpx>=0.27.0
@@ -20,8 +26,3 @@ openapi-schema-validator>=0.6.0
 # Report generation
 jinja2>=3.1.4
 markdown>=3.6
-
-# Utilities
-python-dotenv>=1.0.1
-rich>=13.7.1
-anyio>=4.4.0

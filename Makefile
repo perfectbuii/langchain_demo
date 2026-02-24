@@ -43,11 +43,6 @@ server:
 run:
 	python -m agent.main
 
-run-service:
-	python -m agent.main --service $(SERVICE) --scenario "$(SCENARIO)"
-
-# Example: make run-service SERVICE=account SCENARIO="edge cases"
-
 # ── Cleanup ───────────────────────────────────────────────────────────────────
 
 clean:

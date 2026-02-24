@@ -1,16 +1,10 @@
 # ──────────────────────────────────────────────────────────────────────────────
-# guideline_testing.yaml
-# Minimal user-facing test configuration.
-# No endpoints, no schemas, no HTTP details.
-# The agent auto-discovers everything from specs/ and proto/.
+# config.yaml
+# Infrastructure config only — services are chosen interactively via the chatbot.
 # ──────────────────────────────────────────────────────────────────────────────
 
-test_services:
-  - service: Bank Account
-    scenario: basic validation
-
 agent:
-  model: gemini-2.5-flash-lite
+  model: gemini-2.5-flash
   temperature: 0
   max_iterations: 30
 

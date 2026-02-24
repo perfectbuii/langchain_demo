@@ -4,7 +4,7 @@ import (
 	"errors"
 	"sync"
 
-	"github.com/haobuihoan/account-server/model"
+	"github.com/perfectbuii/account-server/model"
 )
 
 // ErrNotFound is returned when an account is not found.

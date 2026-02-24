@@ -6,8 +6,8 @@ import (
 	"net/http"
 	"strings"
 
-	"github.com/haobuihoan/account-server/service"
-	"github.com/haobuihoan/account-server/store"
+	"github.com/perfectbuii/account-server/service"
+	"github.com/perfectbuii/account-server/store"
 )
 
 // AccountHTTPHandler handles HTTP requests for the accounts domain.

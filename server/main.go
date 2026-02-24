@@ -11,11 +11,11 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/haobuihoan/account-server/handler"
-	"github.com/haobuihoan/account-server/middleware"
-	pb "github.com/haobuihoan/account-server/proto/account"
-	"github.com/haobuihoan/account-server/service"
-	"github.com/haobuihoan/account-server/store"
+	"github.com/perfectbuii/account-server/handler"
+	"github.com/perfectbuii/account-server/middleware"
+	pb "github.com/perfectbuii/account-server/proto/account"
+	"github.com/perfectbuii/account-server/service"
+	"github.com/perfectbuii/account-server/store"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

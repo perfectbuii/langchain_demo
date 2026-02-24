@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\raccount.proto\x12\x07\x61\x63\x63ount\"F\n\x07\x41\x63\x63ount\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\"3\n\x14\x43reateAccountRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\":\n\x15\x43reateAccountResponse\x12!\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\x10.account.Account\"\x1f\n\x11GetAccountRequest\x12\n\n\x02id\x18\x01 \x01(\t\"7\n\x12GetAccountResponse\x12!\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\x10.account.Account\"\x15\n\x13ListAccountsRequest\":\n\x14ListAccountsResponse\x12\"\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\x10.account.Account2\xf4\x01\n\x0e\x41\x63\x63ountService\x12N\n\rCreateAccount\x12\x1d.account.CreateAccountRequest\x1a\x1e.account.CreateAccountResponse\x12\x45\n\nGetAccount\x12\x1a.account.GetAccountRequest\x1a\x1b.account.GetAccountResponse\x12K\n\x0cListAccounts\x12\x1c.account.ListAccountsRequest\x1a\x1d.account.ListAccountsResponseB1Z/github.com/haobuihoan/account-server/pb/accountb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\raccount.proto\x12\x07\x61\x63\x63ount\"F\n\x07\x41\x63\x63ount\x12\n\n\x02id\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\x12\r\n\x05\x65mail\x18\x03 \x01(\t\x12\x12\n\ncreated_at\x18\x04 \x01(\t\"3\n\x14\x43reateAccountRequest\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\r\n\x05\x65mail\x18\x02 \x01(\t\":\n\x15\x43reateAccountResponse\x12!\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\x10.account.Account\"\x1f\n\x11GetAccountRequest\x12\n\n\x02id\x18\x01 \x01(\t\"7\n\x12GetAccountResponse\x12!\n\x07\x61\x63\x63ount\x18\x01 \x01(\x0b\x32\x10.account.Account\"\x15\n\x13ListAccountsRequest\":\n\x14ListAccountsResponse\x12\"\n\x08\x61\x63\x63ounts\x18\x01 \x03(\x0b\x32\x10.account.Account2\xf4\x01\n\x0e\x41\x63\x63ountService\x12N\n\rCreateAccount\x12\x1d.account.CreateAccountRequest\x1a\x1e.account.CreateAccountResponse\x12\x45\n\nGetAccount\x12\x1a.account.GetAccountRequest\x1a\x1b.account.GetAccountResponse\x12K\n\x0cListAccounts\x12\x1c.account.ListAccountsRequest\x1a\x1d.account.ListAccountsResponseB1Z/github.com/perfectbuii/account-server/pb/accountb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'account_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'Z/github.com/haobuihoan/account-server/pb/account'
+  _globals['DESCRIPTOR']._serialized_options = b'Z/github.com/perfectbuii/account-server/pb/account'
   _globals['_ACCOUNT']._serialized_start=26
   _globals['_ACCOUNT']._serialized_end=96
   _globals['_CREATEACCOUNTREQUEST']._serialized_start=98

@@ -74,7 +74,6 @@ class AgentState(TypedDict):
 
     # Input
     service: str
-    scenario: str
 
     # Discovery
     spec_path: str | None          # resolved path to the main spec file
@@ -83,6 +82,9 @@ class AgentState(TypedDict):
 
     # API catalogue
     apis: list[APIEndpoint]
+
+    # Optional filter: only test these api_ids (None = test all)
+    api_filter: list[str] | None
 
     # Generated tests
     generated_tests: list[TestCase]

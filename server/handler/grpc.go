@@ -4,9 +4,9 @@ import (
 	"context"
 	"errors"
 
-	pb "github.com/haobuihoan/account-server/proto/account"
-	"github.com/haobuihoan/account-server/service"
-	"github.com/haobuihoan/account-server/store"
+	pb "github.com/perfectbuii/account-server/proto/account"
+	"github.com/perfectbuii/account-server/service"
+	"github.com/perfectbuii/account-server/store"
 	"google.golang.org/grpc/codes"
 	grpcstatus "google.golang.org/grpc/status"
 )

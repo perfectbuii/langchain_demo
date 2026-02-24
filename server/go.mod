@@ -1,4 +1,4 @@
-module github.com/haobuihoan/account-server
+module github.com/perfectbuii/account-server
 
 go 1.22
 

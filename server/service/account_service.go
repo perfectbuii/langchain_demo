@@ -4,8 +4,8 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/haobuihoan/account-server/model"
-	"github.com/haobuihoan/account-server/store"
+	"github.com/perfectbuii/account-server/model"
+	"github.com/perfectbuii/account-server/store"
 )
 
 // AccountService contains the business logic for the accounts domain.
